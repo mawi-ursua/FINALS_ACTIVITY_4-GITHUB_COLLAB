@@ -1,0 +1,205 @@
+/* Body and background */
+body {
+  margin: 0;
+  font-family: 'Times New Roman', serif;
+  background: url('bg.png') no-repeat center center fixed;
+  background-size: cover;
+  color: white;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Navbar container */
+.navbar {
+  background-color: #997a1e; /* golden brown */
+}
+
+.nav-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+/* Navigation menu links */
+.nav-menu {
+  display: flex;
+  gap: 30px;
+  user-select: none;
+}
+
+.nav-menu a {
+  color: white;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.nav-menu a:hover {
+  text-decoration: underline;
+}
+
+/* Hamburger button hidden by default */
+.hamburger {
+  display: none;
+  position: absolute; 
+  flex-direction: column;
+  justify-content: space-around;
+  width: 25px;
+  height: 22px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  margin-right: 20px;
+}
+
+.hamburger:focus {
+  outline: none;
+}
+
+.bar {
+  width: 100%;
+  height: 3px;
+  background-color: white;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+/* Main container */
+.container {
+  max-width: 900px;
+  margin: 40px auto 40px auto;
+  background: rgba(0, 0, 0, 0.8);
+  padding: 30px 20px;
+  border-radius: 6px;
+  text-align: center;
+  user-select: text;
+}
+
+/* Heading */
+h1 {
+  font-family: 'Cinzel', serif;
+  font-size: 2.8rem;
+  line-height: 1.2;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 5px black;
+  user-select: none;
+}
+
+/* Paragraph */
+p {
+  font-size: 16px;
+  line-height: 1.6;
+  max-width: 600px;
+  margin: 0 auto 40px auto;
+  color: white;
+}
+
+p a {
+  color: #997a1e;
+  text-decoration: underline;
+}
+
+p a:hover {
+  color: #ccaa33;
+}
+
+/* Movies grid layout */
+.movies-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  justify-items: center;
+  max-width: 900px;
+  margin: 0 auto 40px auto;
+  user-select: none;
+}
+
+/* Each movie poster card */
+.movie-card {
+  border: 4px solid #997a1e;
+  max-width: 140px;
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: 0 0 8px #997a1e88;
+  transition: transform 0.2s ease;
+  cursor: default;
+}
+
+.movie-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px #ccaa3399;
+}
+
+.movie-card img {
+  width: 100%;
+  height: auto;
+  display: block;
+  user-select: none;
+  object-fit: cover;
+  border-radius: 3px;
+}
+
+/* Footer */
+footer {
+  background-color: #997a1e;
+  height: 60px;
+  margin-top: auto;
+}
+
+/* Responsive styling */
+
+/* Show hamburger and hide nav-menu on smaller screens */
+@media (max-width: 600px) {
+  .nav-container {
+    justify-content: space-between;
+  }
+
+  .hamburger {
+    position: static; /* participate in flex on mobile */
+    margin-right: 20px;
+    display: flex;
+  }
+
+  .nav-menu {
+    display: none;
+    position: absolute;
+    top: 56px;
+    left: 0;
+    right: 0;
+    background-color: #997a1e;
+    flex-direction: column;
+    gap: 15px;
+    padding: 20px;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    z-index: 1000;
+  }
+
+  /* Show nav-menu when active */
+  .nav-menu.active {
+    display: flex;
+  }
+
+  /* Movies grid and container adjustments */
+  .container {
+    margin: 20px 15px 40px 15px;
+    padding: 25px 15px;
+  }
+
+  .movies-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    max-width: 100%;
+  }
+
+  .movie-card {
+    max-width: 120px;
+  }
+}
